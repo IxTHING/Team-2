@@ -17,7 +17,7 @@ import com.qa.team2.util.JSONUtil;
 
 @Default
 @Transactional(SUPPORTS)
-public class PersonServiceDBImpl {
+public class PersonServiceDBImpl implements PersonService{
 
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
@@ -41,7 +41,7 @@ public class PersonServiceDBImpl {
 	}
 	
 	@Transactional(REQUIRED)
-	public String updatePerosn(Long personId, String personValue) {
+	public String updatePerson(Long personId, String personValue) {
 		Person newPerson = util.getObjectForJSON(personValue, Person.class);
 		Person personInDB = getPerson(personId);
 		if (personInDB != null) {
