@@ -1,9 +1,12 @@
 package com.qa.team2.persistence;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 import com.qa.team2.business.repository.RoomService;
@@ -30,6 +33,8 @@ public class Room {
 		this.apartment = apartment;
 	}
 
+	@ManyToOne
+	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "fk_room_apartment"))
 	private Apartment apartment;
 
 	public Room() {
