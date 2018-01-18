@@ -53,7 +53,7 @@ public class Schedule {
 		this.room = room;
 	}
 
-	public Schedule(Date from_date, Date to_date, Long personId, Long roomId) {
+	public Schedule(Date from_date, Date to_date, Person person, Room room) {
 		super();
 		this.from_date = from_date;
 		this.to_date = to_date;
