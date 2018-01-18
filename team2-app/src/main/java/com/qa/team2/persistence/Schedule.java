@@ -32,33 +32,33 @@ public class Schedule {
 	private Date to_date;
 
 	// Table joins for many to many relationships
-	@ManyToOne(targetEntity = Person.class)
+	@ManyToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "person_personID"))
-	private Long personId;
+	private Person person;
 
-	@ManyToOne(targetEntity = Room.class)
+	@ManyToOne
 	@JoinColumn(nullable = false, foreignKey = @ForeignKey(name = "room_id"))
-	private Long roomId;
+	private Room room;
 	
 	
 	public Schedule() {
 		
 	}
 
-	public Schedule(Long id, Date from_date, Date to_date, Long personId, Long roomId){
+	public Schedule(Long id, Date from_date, Date to_date, Person person, Room room){
 		super();
 		this.id = id;
 		this.from_date = from_date;
 		this.to_date = to_date;
-		this.personId = personId;
-		this.roomId = roomId;
+		this.person = person;
+		this.room = room;
 	}
 
-	public Schedule(Date from_date, Date to_date, Long personId, Long roomId){
+	public Schedule(Date from_date, Date to_date, Person person, Room room){
 		super();
 		this.from_date = from_date;
 		this.to_date = to_date;
-		this.personId = personId;
-		this.roomId = roomId;
+		this.person = person;
+		this.room = room;
 	}
 }
