@@ -1,8 +1,5 @@
 package com.qa.team2.persistence;
 
-public class Schedule {
-	package com.qa.team2.persistence;
-
 	import java.util.Date;
 
 	import javax.persistence.Column;
@@ -50,21 +47,21 @@ public class Schedule {
 
 		}
 
-		public Schedule(Long id, Date from_date, Date to_date, Long personId, Long roomId) {
+		public Schedule(Long id, Date from_date, Date to_date, Person person, Room room) {
 			super();
 			this.id = id;
 			this.from_date = from_date;
 			this.to_date = to_date;
-			this.person = personId;
-			this.room = roomId;
+			this.personId = person.getPersonID();
+			this.roomId = room.ge
 		}
 		
 		public Schedule(Date from_date, Date to_date, Long personId, Long roomId) {
 			super();
 			this.from_date = from_date;
 			this.to_date = to_date;
-			this.person = personId;
-			this.room = roomId;
+			this.personId = personId;
+			this.roomId = roomId;
 		}
 	}
 
