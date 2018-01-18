@@ -1,6 +1,6 @@
 package com.qa.team2.business.repository;
 
-public interface PersonInterface {
+public interface PersonService {
 	
 	String getAllPersons();
 

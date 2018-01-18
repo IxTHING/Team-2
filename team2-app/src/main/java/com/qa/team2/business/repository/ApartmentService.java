@@ -10,5 +10,5 @@ public interface ApartmentService {
 	
 	String findApartment(Long id);
 	
-	String updateApartment(String apartment);
+	String updateApartment(Long id, String apartment);
 }
