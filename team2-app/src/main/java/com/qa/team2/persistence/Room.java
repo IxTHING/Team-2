@@ -28,3 +28,5 @@ public class Room {
 		this(apartment);
 		this.id = id;
 	}
+	
+}
