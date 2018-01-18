@@ -18,10 +18,6 @@ import com.qa.team2.util.JSONUtil;
 
 @Entity
 public class Room {
-	
-	@Inject
-	ApartmentService apartmentService;
-	JSONUtil util;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,14 +38,12 @@ public class Room {
 
 	}
 
-	public Room(Long apartmentId) {
-		String aApartmentString = apartmentService.findApartment(apartmentId);
-		Apartment aApartment = util.getObjectForJSON(aApartmentString, Apartment.class);
-		this.apartment = aApartment;
+	public Room(Apartment apartment) {
+		this.apartment = apartment;
 	}
 	
-	public Room(Long id, Long apartmentId) {
-		this(apartmentId);
+	public Room(Long id, Apartment apartment) {
+		this(apartment);
 		this.id = id;
 	}
 
