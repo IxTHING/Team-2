@@ -43,8 +43,8 @@ public class TraineeServiceImpl {
 	public String createTrainee(String traineeXML) {
 		Trainee newTrainee = (Trainee) util.getObjectForXML(traineeXML);
 		if (newTrainee != null) {
-			traineeMap.put(ID, newTrainee);
 			ID++;
+			traineeMap.put(ID, newTrainee);			
 			return "{\"message\": \"trainee successfully added\"}";
 		}
 		return "{\"message\": \"trainee not created - trainee to create was null\"}";
