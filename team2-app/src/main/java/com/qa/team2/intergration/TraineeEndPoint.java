@@ -31,8 +31,8 @@ public class TraineeEndPoint {
 	
 	@POST
 	@Path("/xml")
-	public String addNewTraineeToMap(String traineeXml) {
-		return traineeService.addNewTrainee(traineeXml);
+	public String createTrainee(String traineeXml) {
+		return traineeService.createTrainee(traineeXml);
 	}
 	
 	@PUT
@@ -43,7 +43,7 @@ public class TraineeEndPoint {
 	
 	@DELETE
 	@Path("/xml/{id}")
-	public String deleteTraineeFromMap(@PathParam("id") Long id, String traineeXml){
-		return traineeService.deleteTrainee(id, traineeXml);
+	public String deleteTraineeFromMap(@PathParam("id") Long id){
+		return traineeService.deleteTrainee(id);
 	}
 }
