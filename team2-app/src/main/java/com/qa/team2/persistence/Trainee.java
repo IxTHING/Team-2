@@ -2,11 +2,16 @@ package com.qa.team2.persistence;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 public class Trainee {
 	private String firstName;
 	private String lastName;
 	private int age;
+	@Temporal(TemporalType.DATE)
 	private Date starting_date;
+	@Temporal(TemporalType.DATE)
 	private Date finishing_date;
 	
 	public String getFirstName() {
