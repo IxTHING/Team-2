@@ -22,28 +22,28 @@ public class TraineeEndPoint {
 		return traineeService.getAllTrainees();
 	}
 	
-
+	
 	@GET
 	@Path("/xml/{id}")
 	public String findTrainee(@PathParam("id") Long id) {
-		return traineeService.findTrainee(id);
+		return null;
 	}
 	
 	@POST
 	@Path("/xml")
 	public String createTrainee(String traineeXml) {
-		return traineeService.createTrainee(traineeXml);
+		return null;
 	}
 	
 	@PUT
 	@Path("/xml/{id}")
 	public String updateTraineeOnMap(@PathParam("id") Long id, String traineeXml){
-		return traineeService.updateTrainee(id, traineeXml);
+		return null;
 	}
 	
 	@DELETE
 	@Path("/xml/{id}")
 	public String deleteTraineeFromMap(@PathParam("id") Long id){
-		return traineeService.deleteTrainee(id);
+		return null;
 	}
 }

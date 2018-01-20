@@ -2,7 +2,7 @@ package com.qa.team2.business.repository;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.qa.team2.business.repository.TeamService") 
+@WebService(endpointInterface = "com.qa.team2.business.repository.TraineeService") 
 public class TraineeServiceImpl implements TraineeService {
 
 	@Override
