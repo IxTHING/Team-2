@@ -6,6 +6,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 public class Trainee {
+	private Long id;
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -13,6 +14,17 @@ public class Trainee {
 	private Date starting_date;
 	@Temporal(TemporalType.DATE)
 	private Date finishing_date;
+	
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getFirstName() {
 		return firstName;
