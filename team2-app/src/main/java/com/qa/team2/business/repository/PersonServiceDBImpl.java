@@ -44,6 +44,7 @@ public class PersonServiceDBImpl implements PersonService{
 	public String updatePerson(Long personId, String personValue) {
 		Person newPerson = util.getObjectForJSON(personValue, Person.class);
 		Person personInDB = getPerson(personId);
+		
 		if (personInDB != null) {
 			personInDB = newPerson;
 			em.merge(personInDB);
