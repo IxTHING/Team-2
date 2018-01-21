@@ -12,8 +12,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import org.apache.log4j.Logger;
-
 import com.qa.team2.persistence.Room;
 import com.qa.team2.util.JSONUtil;
 

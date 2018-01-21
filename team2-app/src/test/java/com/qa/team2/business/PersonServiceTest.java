@@ -1,7 +1,5 @@
 package com.qa.team2.business;
 
-import java.util.ArrayList;
-
 import javax.persistence.EntityManager;
 
 import org.junit.Assert;

@@ -73,4 +73,22 @@ public class ScheduleServiceDBImpl implements ScheduleService {
 			 return "{\"message\": \"schedule not updated, error occurred, most likely null object\"}";
 		}
 	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
+	public JSONUtil getUtil() {
+		return util;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
+	}
+	
+	
 }
