@@ -15,7 +15,8 @@ public class Apartment {
 	@NotNull
 	private Integer noRooms;
 	@NotNull
-	private String address;
+	@Embedded
+	private Address address;
 	@NotNull
 	private Double deposit;
 	
@@ -23,7 +24,7 @@ public class Apartment {
 		
 	}
 	
-	public Apartment(String buildingName, String apartmentNo, Integer noRooms, String address, Double deposit) {
+	public Apartment(String buildingName, String apartmentNo, Integer noRooms, Address address, Double deposit) {
 		this.buildingName = buildingName;
 		this.apartmentNo = apartmentNo;
 		this.noRooms = noRooms;
@@ -31,7 +32,7 @@ public class Apartment {
 		this.deposit = deposit;
 	}
 
-	public Apartment(Long id, String buildingName, String apartmentNo, Integer noRooms, String address, Double deposit) {
+	public Apartment(Long id, String buildingName, String apartmentNo, Integer noRooms, Address address, Double deposit) {
 		this(buildingName, apartmentNo, noRooms, address, deposit);
 		this.id = id;
 	}
@@ -64,11 +65,11 @@ public class Apartment {
 		this.noRooms = noRooms;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
