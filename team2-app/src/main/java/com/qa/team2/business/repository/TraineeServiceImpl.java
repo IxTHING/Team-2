@@ -1,74 +1,50 @@
 package com.qa.team2.business.repository;
 
-import static javax.transaction.Transactional.TxType.REQUIRED;
-import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
+import javax.jws.WebService;
 
 import com.qa.team2.persistence.Trainee;
-import com.qa.team2.util.XMLUtil;
 
-@Default
-@Transactional(SUPPORTS)
-@ApplicationScoped
-public class TraineeServiceImpl {
+@WebService(endpointInterface = "com.qa.team2.business.repository.TraineeService") 
+public class TraineeServiceImpl implements TraineeService {
 
-	private Map<Long, Trainee> traineeMap;
-	private Long ID;
+	private static Map<Long,Trainee> trainees = new HashMap<Long,Trainee>();
 	
-	@Inject
-	private XMLUtil util;
-	
-	public TraineeServiceImpl() {
-		this.traineeMap = new HashMap<Long, Trainee>();
-		ID = 0L;
-	}
-	
-	public String getAllTrainees() {
-		return util.getXMLForObject(traineeMap);
-	}
-	
-	public String findTrainee(Long id) {
-		Trainee aTrainee = traineeMap.get(id);
-		return util.getXMLForObject(aTrainee);
-	}
-	
-	@Transactional(REQUIRED)
-	public String createTrainee(String traineeXML) {
-		Trainee newTrainee = (Trainee) util.getObjectForXML(traineeXML);
-		if (newTrainee != null) {
-			ID++;
-			traineeMap.put(ID, newTrainee);			
-			return "{\"message\": \"trainee successfully added\"}";
+	@Override
+	public Trainee[] getAllTrainees() {
+		System.out.println("gettAll");
+		Set<Long> ids = trainees.keySet();
+		Trainee[] t = new Trainee[ids.size()];
+		int i=0;
+		for(Long id : ids){
+			t[i] = trainees.get(id);
+			i++;
 		}
-		return "{\"message\": \"trainee not created - trainee to create was null\"}";
+		return t;
 	}
-	
-	@Transactional(REQUIRED)
-	public String updateTrainee(Long id, String traineeXML) {
-		Trainee aTrainee = traineeMap.get(id);
-		Trainee newTrainee = (Trainee) util.getObjectForXML(traineeXML);
-		if (aTrainee != null) {
-			traineeMap.put(id, newTrainee);
-			return "{\"message\": \"trainee successfully updated\"}";
-		}
-		return "{\"message\": \"trainee not updated - trainee at that id is null\"}";
+
+	@Override
+	public boolean addNewTrainee(Trainee t) {
+		System.out.println("addNew");
+		if(trainees.get(t.getId()) != null) return false;
+			trainees.put(t.getId(), t);
+			return true;
 	}
-	
-	@Transactional(REQUIRED)
-	public String deleteTrainee(Long id) {
-		Trainee aTrainee = traineeMap.get(id);
-		if (aTrainee != null) {
-			traineeMap.remove(id);
-			return "{\"message\": \"trainee successfully deleted\"}";
-		}
-		return "{\"message\": \"trainee not deleted - trainee to delete is null\"}";
+
+	@Override
+	public boolean deleteTrainee(Long id) {
+		System.out.println("deleteAll");
+		if(trainees.get(id) == null) return false;
+		trainees.remove(id);
+		return true;
 	}
-	
+
+	@Override
+	public Trainee findTrainee(Long id) {
+		System.out.println("findTrainee");
+		return trainees.get(id);
+	}
 }
