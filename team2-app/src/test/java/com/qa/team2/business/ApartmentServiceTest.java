@@ -12,10 +12,8 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.qa.team2.business.repository.ApartmentServiceDBImpl;
-import com.qa.team2.business.repository.PersonServiceDBImpl;
 import com.qa.team2.persistence.Address;
 import com.qa.team2.persistence.Apartment;
-import com.qa.team2.persistence.Person;
 import com.qa.team2.util.JSONUtil;
 
 @RunWith(MockitoJUnitRunner.class)
