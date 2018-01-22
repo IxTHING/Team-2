@@ -22,4 +22,6 @@ public interface TraineeService {
 	@WebMethod
 	Trainee findTrainee(Long id);
 	
+	@WebMethod
+	boolean sendTraineeMule(Trainee t);
 }
