@@ -113,6 +113,15 @@
 		    <artifactId>xstream</artifactId>
 		    <version>1.4.10</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-jms-client-bom -->
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-jms-client-bom</artifactId>
+		    <version>10.1.0.Final</version>
+		    <type>pom</type>
+		</dependency>
+
 
     </dependencies>
 
@@ -121,6 +130,52 @@
             name given to the generated WAR, and hence the context root) -->
         <finalName>${project.artifactId}</finalName>
         <plugins>
+        
+        	<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.jboss.as.quickstarts.jms.HelloWorldJMSClient</mainClass>
+                    <systemProperties>
+                        <!-- Override the default values of properties passed to the HelloWorldJMSClient -->
+                        <!--
+                        <systemProperty>
+                            <key>java.naming.provider.url</key>
+                            <value>remote://localhost:8080</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>username</key>
+                            <value>quickstartUser</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>password</key>
+                            <value>quickstartPwd1!</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>connection.factory</key>
+                            <value>jms/RemoteConnectionFactory</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>destination</key>
+                            <value>jms/queue/test</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>message.count</key>
+                            <value>1</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <key>message.content</key>
+                            <value>Hello, World!</value>
+                        </systemProperty-->
+                        <systemProperty>
+                            <key>java.logging.config.file</key>
+                            <value>./helloworld-jms-logging.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${version.war.plugin}</version>
