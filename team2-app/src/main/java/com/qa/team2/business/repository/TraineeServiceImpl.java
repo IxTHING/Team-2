@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.jws.WebService;
 
+import com.qa.team2.jms.JMSSenderReciever;
 import com.qa.team2.mule.EntryPoint;
 import com.qa.team2.persistence.Trainee;
 import com.qa.team2.util.JSONUtil;
@@ -40,6 +41,14 @@ public class TraineeServiceImpl implements TraineeService {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	@Override
+	public boolean sendTraineeJMS(Trainee t) {
+		JMSSenderReciever jms = new JMSSenderReciever();
+		String tJson = util.getJSONForObject(t);
+		jms.sendTrainee(tJson);
+		return true;
 	}
 	
 	@Override

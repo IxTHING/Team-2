@@ -24,4 +24,7 @@ public interface TraineeService {
 	
 	@WebMethod
 	boolean sendTraineeMule(Trainee t);
+	
+	@WebMethod
+	boolean sendTraineeJMS(Trainee t);
 }
