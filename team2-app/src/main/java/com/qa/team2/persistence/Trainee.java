@@ -14,13 +14,10 @@ public class Trainee {
 	private Date starting_date;
 	@Temporal(TemporalType.DATE)
 	private Date finishing_date;
-	
-	
-	
+
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
